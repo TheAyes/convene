@@ -1,0 +1,14 @@
+{
+	"name": "@harmony/desktop",
+	"dependencies": {
+		"@harmony/client": "workspace:*"
+	},
+	"devDependencies": {
+		"@tauri-apps/cli": "^2.0.4"
+	},
+	"scripts": {
+		"dev": "tauri dev",
+		"build": "tauri build",
+		"tauri": "tauri"
+	}
+}

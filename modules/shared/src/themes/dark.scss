@@ -1,0 +1,17 @@
+:root.dark {
+	--palette-background-primary: #010120;
+	--palette-background-secondary: #431212;
+	--palette-background-paper: #121223;
+	--palette-background-elevated: #232334;
+
+	--palette-colors-primary: #9f9fff;
+	--palette-colors-secondary: #ffaa00;
+
+	--palette-states-success: #009f32;
+	--palette-states-error: #ee2150;
+
+	--palette-text-default: #dedede;
+	--palette-text-primary: var(--palette-colors-primary);
+
+	--typography-fontFamily: sans-serif
+}

@@ -1,0 +1,38 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"composite": true,
+		"declaration": true,
+		"declarationMap": true,
+		"incremental": true,
+		"outDir": "./dist",
+		"skipLibCheck": true,
+		"paths": {
+			"*": [
+				"./node_modules/*",
+				"./modules/*"
+			]
+		}
+	},
+	"include": [
+		"modules/*/**"
+	],
+	"exclude": [
+		"node_modules/*/**"
+	],
+	"references": [
+		{
+			"path": "modules/shared/"
+		},
+		{
+			"path": "modules/desktop/"
+		},
+		{
+			"path": "modules/components/"
+		},
+		{
+			"path": "modules/client/"
+		}
+	]
+}
