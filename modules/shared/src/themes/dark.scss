@@ -7,8 +7,16 @@
 	--palette-colors-primary: #9f9fff;
 	--palette-colors-secondary: #ffaa00;
 
-	--palette-states-success: #009f32;
-	--palette-states-error: #ee2150;
+	--palette-states-success: #6f9639;
+	--palette-states-info: #358ea7;
+	--palette-states-warning: #ffff00;
+	--palette-states-error: #9e4747;
+
+	--palette-states-online: var(--palette-states-success);
+	--palette-states-idle: var(--palette-states-info);
+	--palette-states-busy: var(--palette-states-error);
+	--palette-states-offline: var(--palette-background-primary);
+	--palette-states-disconnected: #c24f7d;
 
 	--palette-text-default: #dedede;
 	--palette-text-primary: var(--palette-colors-primary);
