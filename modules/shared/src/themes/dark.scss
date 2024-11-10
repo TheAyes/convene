@@ -1,5 +1,5 @@
 :root.dark {
-	--palette-background-primary: #010120;
+	--palette-background-primary: #010119;
 	--palette-background-secondary: #431212;
 	--palette-background-paper: #121223;
 	--palette-background-elevated: #232334;
@@ -15,11 +15,12 @@
 	--palette-states-online: var(--palette-states-success);
 	--palette-states-idle: var(--palette-states-info);
 	--palette-states-busy: var(--palette-states-error);
-	--palette-states-offline: var(--palette-background-primary);
+	--palette-states-offline: transparent;
 	--palette-states-disconnected: #c24f7d;
 
 	--palette-text-default: #dedede;
 	--palette-text-primary: var(--palette-colors-primary);
+	--palette-text-hint: #9a9a9a;
 
 	--typography-fontFamily: sans-serif
 }

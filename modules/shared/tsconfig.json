@@ -19,11 +19,11 @@
 		"isolatedModules": true,
 		"outDir": "tmp",
 		"noEmit": true,
-		"paths": {
-			"~/*": [
-				"./src/*"
+		/*"paths": {
+			"~*//*": [
+				"./src*//*"
 			]
-		}
+		}*/
 	},
 	"files": [
 		"./.eslintrc.cjs"

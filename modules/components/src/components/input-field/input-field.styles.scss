@@ -1,0 +1,49 @@
+@use "@harmony/shared/src/theme" as *;
+@use "sass:map";
+@use "sass:color";
+
+.input-field {
+	display: block;
+
+	padding: 1em;
+
+	color: var(--palette-text-main);
+
+	border: none;
+	border-bottom: 2px solid map.get($theme, palette, colors, primary, main);
+
+	border-radius: map.get($theme, border-radius, small);;
+
+	background-color: map.get($theme, palette, colors, surface, main);;
+
+	&:not([type="submit"]):not([type="button"]) {
+		transition-timing-function: ease-in-out;
+		transition-duration: 200ms;
+		transition-property: background-color, border-bottom-color;
+
+		&:hover {
+			border-bottom-color: 2px solid map.get($theme, palette, colors, primary, light);
+			background-color: map.get($theme, palette, colors, surface, light);
+		}
+
+		&:focus {
+			border-bottom-color: 2px solid map.get($theme, palette, colors, primary, dark);
+			outline: none;
+			background-color: map.get($theme, palette, colors, surface, dark);
+		}
+	}
+
+	&[type="submit"], &[type="button"] {
+		font-weight: 500;
+		color: map.get($theme, palette, colors, primary, contrast-text);
+		background: map.get($theme, palette, colors, primary, main);
+
+		&:hover {
+			background: map.get($theme, palette, colors, primary, light);
+		}
+
+		&:active {
+			background: map.get($theme, palette, colors, primary, dark);
+		}
+	}
+}

@@ -1,0 +1,36 @@
+@use "@harmony/shared/src/variables" as *;
+
+.login {
+	display: flex;
+	align-items: center;
+
+	flex-direction: column;
+	justify-content: center;
+
+	height: 100dvh;
+
+	gap: 1.6em;
+
+	& > label {
+		display: flex;
+		flex-direction: column;
+
+		gap: 0.5em;
+
+		& > input {
+
+			padding: 0.7em 1em;
+
+			color: var(--palette-text-default, $palette-text-main);
+
+			border: unset;
+			background: var(--palette-background-secondary, $palette-background-paper);
+
+			&::placeholder {
+				color: var(--palette-text-hint, $palette-text-subtext);
+
+			}
+		}
+	}
+
+}

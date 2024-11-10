@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectTasksOptions" suppressed-tasks="SCSS" />
+  <component name="ProjectTasksOptions" suppressed-tasks="SCSS">
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="run build" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="*" />
+      <option name="immediateSync" value="true" />
+      <option name="name" value="Components" />
+      <option name="output" value="" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="/etc/profiles/per-user/ayes/bin/bun" />
+      <option name="runOnExternalChanges" value="true" />
+      <option name="scopeName" value="Components &amp; Shared" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$PROJECT_DIR$/modules/components" />
+      <envs />
+    </TaskOptions>
+  </component>
 </project>

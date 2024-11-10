@@ -1,0 +1,42 @@
+@use "@harmony/shared/src/variables" as *;
+
+.status-indicator {
+	$symbol-thickness: 1.7; // Modify this value to increase the thickness of the symbol and border
+	$resulting-fz: calc($symbol-thickness * $status-indicator-size);
+	font-size: $resulting-fz  + em;
+	font-weight: bolder;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: calc($status-indicator-size / $resulting-fz) + em;
+	height: calc($status-indicator-size / $resulting-fz) + em;
+	padding: 2px;
+	border: calc($status-indicator-size / ($resulting-fz * 7)) + em solid var(--palette-background-paper, $palette-background-paper);
+	border-radius: $border-radius-full;
+	aspect-ratio: 1/1;
+
+	& > svg {
+		stroke: var(--palette-background-paper, $palette-background-paper);
+		stroke-width: 0.1em;
+	}
+
+	&.online {
+		background-color: var(--palette-states-online, $palette-states-online);
+	}
+
+	&.idle {
+		background-color: var(--palette-states-idle, $palette-states-idle);
+	}
+
+	&.busy {
+		background-color: var(--palette-states-busy, $palette-states-busy);
+	}
+
+	&.offline {
+		background-color: var(--palette-states-offline, $palette-states-offline);
+	}
+
+	&.disconnected {
+		background-color: var(--palette-states-disconnected, $palette-states-disconnected);
+	}
+}

@@ -27,9 +27,8 @@
 			]
 		}
 	},
-	"files": [
-		"./.eslintrc.cjs"
-	],
+	/*"files": [
+	],*/
 	"include": [
 		"src",
 		"./*.d.ts",

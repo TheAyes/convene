@@ -1,0 +1,46 @@
+@use "functions" as *;
+
+$internal-theme: (
+	palette: (
+		colors: (
+			base: makeColor(#1e1e2e),
+			mantle: makeColor(#181825),
+			crust: makeColor(#11111b),
+			surface: makeColor(#313244),
+			overlay: makeColor(#6c7086),
+			primary: makeColor(#cba6f7)
+		),
+		text: (
+			base: makeColor(#cdd6f4),
+			hint: makeColor(#a6adc8),
+			disabled: makeColor(#8d949d)
+		),
+		states: (
+			success: makeColor(#a6e3a1),
+			error: makeColor(#f38ba8),
+			info: makeColor(#89b4fa),
+			warning: makeColor(#f9e2af)
+		)
+	),
+	typography: (
+		font-family: sans-serif,
+		font-size: 1.6rem,
+		base-weight: 500
+	),
+	spacing: (
+		extra-small: 2px,
+		small: 4px,
+		medium: 8px,
+		large: 16px,
+		extra-large: 32px
+	),
+	border-radius: (
+		extra-small: 2px,
+		small: 4px,
+		medium: 8px,
+		large: 16px,
+		extra-large: 32px
+	)
+);
+
+$theme: make-theme-map($internal-theme);

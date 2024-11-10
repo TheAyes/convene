@@ -1,8 +1,25 @@
 @use "@harmony/shared/src/variables" as *;
 
 .avatar {
-	height: 100%;
-	padding: 4px;
+	font-size: 1rem;
+	position: relative;
+	width: 5rem;
+	padding: 0.75em;
 	border-radius: $border-radius-full;
 	aspect-ratio: 1/1;
+
+	$outspread: 7%;
+
+	& > .message-indicator, & > .status-indicator {
+		position: absolute;
+		right: 0;
+	}
+
+	& > .message-indicator {
+		top: 0;
+	}
+
+	& > .status-indicator {
+		bottom: 0;
+	}
 }

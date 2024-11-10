@@ -1,0 +1,68 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
+//noinspection CssInvalidFunction
+@function luminance($color) {
+	$rgb: (
+		'r': color.channel($color, "red", $space: rgb),
+		'g': color.channel($color, "green", $space: rgb),
+		'b': color.channel($color, "blue", $space: rgb),
+	);
+
+	@each $channel, $value in $rgb {
+		$value: math.div($value, 255);
+
+		@if $value < 0.03928 {
+			$value: math.div($value, 12.92);
+		} @else {
+			$value: math.div($value + .055, 1.055);
+			$value: math.pow($value, 2.4);
+		}
+
+		$rgb: map.merge($rgb, ($channel: $value));
+	}
+
+	@return (map.get($rgb, 'r') * .2126) +
+    (map.get($rgb, 'g') * .7152) +
+    (map.get($rgb, 'b') * .0722);
+}
+
+@function get-contrast-text($base-color, $dark-color: #000000, $light-color: #ffffff) {
+	$luminance: luminance($base-color);
+
+	@return if($luminance > 0.45, $dark-color, $light-color);
+}
+
+@function makeColor($base-color) {
+	@return (
+		main: $base-color,
+		dark: color.scale($base-color, $lightness: -10%),
+		light: color.scale($base-color, $lightness: +10%),
+		contrast-text: get-contrast-text($base-color)
+	)
+}
+
+@function make-theme-map($map, $prefix: "") {
+	$result: ();
+
+	@each $key, $value in $map {
+		@if meta.type-of($value) == map {
+			$nested-map: ();
+			@if ($prefix == "") {
+				$nested-map: make-theme-map($value, $key);
+			} @else {
+
+				$nested-map: make-theme-map($value, $prefix + "-" + $key);
+			}
+
+			$result: map.set($result, $key, $nested-map);
+		} @else {
+			$css-var: "--#{$prefix}-#{$key}";
+			$result: map.set($result, $key, var(#{$css-var}, #{$value}));
+		}
+	}
+
+	@return $result;
+}

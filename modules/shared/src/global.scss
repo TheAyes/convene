@@ -1,10 +1,23 @@
-@use "reset" as *;
+@use "reset";
+@use "theme" as *;
+@use "mixins" as *;
+@use "sass:map";
+
+:root {
+	@include generate-css-variables($internal-theme);
+}
 
 html {
-	background-color: var(--palette-background-primary, #121212);
+	background-color: map.get($theme, palette, colors, base, main);
 }
 
 body {
-	font-family: var(--typography-fontFamily, sans-serif), sans-serif;
-	color: var(--palette-text-default, #dedede);
+	font-family: map.get($theme, typography, font-family);
+	font-size: map.get($theme, typography, font-size);
+	font-weight: map.get($theme, typography, base-weight);
+	color: map.get($theme, palette, text, base, main);
+}
+
+:any-link {
+	color: map.get($theme, palette, colors, primary, main);
 }

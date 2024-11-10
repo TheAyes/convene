@@ -1,0 +1,31 @@
+@use "@harmony/shared/src/variables" as *;
+
+.user-status {
+	display: flex;
+	gap: 0.5em;
+
+	& > .avatar {
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+
+	& > div {
+		display: flex;
+		flex-direction: column;
+
+		justify-content: space-evenly;
+
+		& > h4 {
+			font-size: 1em;
+			transition: filter 200ms ease-in-out;
+			color: var(--palette-text-primary, $palette-text-primary);
+			// Maybe in the future. I'll need to see if it's going to look good
+			//filter: drop-shadow(0 0 2px var(--palette-text-default, #dededeaa));
+		}
+
+		& > p {
+			font-size: 0.75em;
+		}
+
+	}
+}

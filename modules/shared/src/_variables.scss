@@ -1,10 +1,47 @@
-$border-radius-extraSmall: 4px;
-$border-radius-small: 8px;
-$border-radius-medium: 12px;
-$border-radius-large: 16px;
-$border-radius-extraLarge: 20px;
+@use "sass:color";
+@use "sass:map";
+@use "functions" as *;
+
+$border-radius-extraSmall: 2px;
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 12px;
+$border-radius-extraLarge: 16px;
 $border-radius-full: 999vw;
 
 $avatar-size-small: 2em;
 $avatar-size-medium: 3em;
 $avatar-size-large: 4em;
+
+$status-indicator-size: 2.4;
+
+$palette-background-base: #1e1e2e;
+$palette-background-mantle: #181825;
+$palette-background-crust: #11111b;
+$palette-background-paper: #313244;
+$palette-background-elevated: #202030;
+$palette-background-primary: #9f9fff;
+$palette-background-secondary: #08415c;
+$palette-background-tertiary: #379392;
+
+$palette-states-success: #a6e3a1;
+$palette-states-info: #cba6f7;
+$palette-states-warning: #f9e2af;
+$palette-states-error: #f38ba8;
+
+$palette-states-online: $palette-states-success;
+$palette-states-idle: $palette-states-info;
+$palette-states-busy: $palette-states-error;
+$palette-states-offline: #817070;
+$palette-states-disconnected: #c24f7d;
+
+$palette-text-main: #cdd6f4;
+$palette-text-contrast-light: $palette-text-main;
+$palette-text-contrast-dark: #32290b;
+$palette-text-subtext: #a6adc8;
+$palette-text-primary: $palette-background-primary;
+$palette-text-secondary: $palette-background-secondary;
+$palette-text-tertiary: $palette-background-tertiary;
+
+$typography-fontFamily: sans-serif;
+

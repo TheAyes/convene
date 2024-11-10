@@ -9,5 +9,12 @@ export default [
 	{ files: ["**/*.{js, mjs, cjs, ts, mts, cts}"] },
 	{ languageOptions: { globals: globals.browser } },
 	pluginJs.configs.recommended,
-	...tseslint.configs.recommended
+	...tseslint.configs.recommended,
+	{
+		rules: {
+			"@typescript-eslint/no-explicit-any": "off",
+			/*"@typescript-eslint/no-var-requires": "warn",*/
+			"@typescript-eslint/no-unused-vars": "warn"
+		}
+	}
 ];

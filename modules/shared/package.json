@@ -1,3 +1,4 @@
 {
-	"name": "@harmony/shared"
+	"name": "@harmony/shared",
+	"main": "./src/index.ts"
 }

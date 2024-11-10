@@ -27,11 +27,13 @@ export default defineConfig(({ command, mode }): UserConfig => {
 			preprocessorOptions: {
 				scss: {
 					api: "modern-compiler",
-					devDependencies: "sass-embedded"
+					devDependencies: "sass-embedded",
+					silenceDeprecations: ["legacy-js-api"]
 				},
 				sass: {
 					api: "modern-compiler",
-					devDependencies: "sass-embedded"
+					devDependencies: "sass-embedded",
+					silenceDeprecations: ["legacy-js-api"]
 				}
 			}
 		},
