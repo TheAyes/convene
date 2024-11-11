@@ -2,9 +2,10 @@
 	"name": "@harmony/shared",
 	"main": "./src/index.ts",
 	"scripts": {
-		"update-types": "npx supabase gen types --lang=typescript --project-id \"$PROJECT_REF\" > src/types/database.types.ts"
+		"update-types": "supabase gen types --lang=typescript --project-id \"$PROJECT_REF\" > src/types/database.types.ts"
 	},
 	"devDependencies": {
+		"supabase": "latest",
 		"@builder.io/qwik-city": "^1.9.1",
 		"supabase-auth-helpers-qwik": "^0.0.3"
 	}

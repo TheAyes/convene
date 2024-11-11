@@ -3,7 +3,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"update-types": "cd modules/shared && bun run update-types"
+		"update-database-types": ""
 	},
 	"workspaces": [
 		"modules/*"
@@ -20,6 +20,8 @@
 		"typescript-eslint": "^8.12.2"
 	},
 	"trustedDependencies": [
-		"esbuild"
+		"@parcel/watcher",
+		"esbuild",
+		"supabase"
 	]
 }
