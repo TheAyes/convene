@@ -7,9 +7,9 @@ const dataStore_component = require("../data-store/data-store.component.qwik.cjs
 const statusIndicator = require("./status-indicator.scss.qwik.cjs");
 const StatusIndicator = qwik.component$(({ overrideOnlineStatus }) => {
   qwik.useStyles$(statusIndicator);
-  const userData = qwik.useContext(dataStore_component.userContext);
+  qwik.useContext(dataStore_component.userContext);
   const status = qwik.useComputed$(() => {
-    return overrideOnlineStatus ?? userData.status;
+    return overrideOnlineStatus;
   });
   const statusComponent = qwik.useComputed$(() => {
     switch (status.value) {

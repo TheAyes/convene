@@ -1,28 +1,11 @@
-import { routeAction$, routeLoader$ } from "@builder.io/qwik-city";
-import { getSupabaseClient } from "../utils/supabaseClient";
-import { LOGIN_REDIRECT } from "../utils/tokens";
-
-export const useLoginUser = routeAction$(async (formData, requestEvent) => {
+/*export const useUserData = routeLoader$(async (requestEvent) => {
 	const client = getSupabaseClient(requestEvent);
 
-	const { error } = await client.auth.signInWithPassword({
-		email: formData.account.toString(),
-		password: formData.password.toString()
-	});
+	const { data: userData, error } = await client.auth.getUser();
 
-	if (error) {
-		throw requestEvent.error(401, error.message);
-	}
+	const { data: profileData } = await client.from("profiles").select("*");
 
-	throw requestEvent.redirect(LOGIN_REDIRECT, "/");
-});
+	if (error) throw requestEvent.redirect(LOGIN_REDIRECT, "/login");
 
-export const useUserData = routeLoader$(async (requestEvent) => {
-	const client = getSupabaseClient(requestEvent);
-
-	const { data, error } = await client.auth.getUser();
-
-	if (error) throw requestEvent.error(401, error.message);
-
-	return data.user;
-});
+	return { user: userData.user, profile: profileData };
+});*/

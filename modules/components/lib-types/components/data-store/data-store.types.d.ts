@@ -1,5 +1,8 @@
-import { TOnlineStates } from "@harmony/shared/src/types";
-export interface IInitialUserData {
-    username: string;
-    status: TOnlineStates;
+import { type QRL } from "@builder.io/qwik";
+import { type Database } from "@harmony/shared";
+import { type UserResponse } from "@supabase/supabase-js";
+export interface IUserData {
+    profile?: Database["public"]["Tables"]["profiles"]["Row"];
+    account?: UserResponse;
+    setUserData: QRL<(this: IUserData, payload: any) => void>;
 }

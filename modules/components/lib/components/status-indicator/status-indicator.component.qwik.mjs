@@ -5,9 +5,9 @@ import { userContext } from "../data-store/data-store.component.qwik.mjs";
 import styles from "./status-indicator.scss.qwik.mjs";
 const StatusIndicator = component$(({ overrideOnlineStatus }) => {
   useStyles$(styles);
-  const userData = useContext(userContext);
+  useContext(userContext);
   const status = useComputed$(() => {
-    return overrideOnlineStatus ?? userData.status;
+    return overrideOnlineStatus;
   });
   const statusComponent = useComputed$(() => {
     switch (status.value) {

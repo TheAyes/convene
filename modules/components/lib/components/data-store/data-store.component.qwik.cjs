@@ -5,8 +5,17 @@ const qwik = require("@builder.io/qwik");
 const userContext = qwik.createContextId("user");
 const DataStore = qwik.component$(() => {
   const userData = qwik.useStore({
-    username: "Ayes",
-    status: "busy"
+    account: void 0,
+    profile: void 0,
+    setUserData: qwik.$(function(payload) {
+      if (!payload) {
+        console.error("No payload provided");
+        return;
+      }
+      this.account = payload.account;
+      this.profile = payload.profile;
+      console.log(this);
+    })
   });
   qwik.useContextProvider(userContext, userData);
   return /* @__PURE__ */ jsxRuntime.jsx(qwik.Slot, {});

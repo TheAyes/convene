@@ -1,0 +1,17 @@
+@use "@harmony/shared/src/theme" as *;
+@use "sass:map";
+
+.root-layout {
+	display: flex;
+	overflow: scroll;
+	height: 100dvh;
+
+	& > aside {
+		width: clamp(15rem, 30%, 26rem);
+		background-color: map.get($theme, palette, colors, surface, main);
+	}
+
+	& > main {
+		flex: 1 1 100%;
+	}
+}

@@ -10,7 +10,7 @@ export const StatusIndicator = component$<IStatusIndicator>(({ overrideOnlineSta
 	const userData = useContext(userContext);
 
 	const status = useComputed$(() => {
-		return overrideOnlineStatus ?? userData.status;
+		return overrideOnlineStatus //?? //userData.status;
 	});
 
 	const statusComponent = useComputed$(() => {
