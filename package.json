@@ -2,6 +2,9 @@
 	"name": "harmony",
 	"private": true,
 	"type": "module",
+	"scripts": {
+		"update-types": "cd modules/shared && bun run update-types"
+	},
 	"workspaces": [
 		"modules/*"
 	],
