@@ -1,7 +1,8 @@
 import { component$, createContextId, Slot, useStyles$ } from "@builder.io/qwik";
 import { RequestHandler, routeLoader$ } from "@builder.io/qwik-city";
 import { UserStatus } from "@harmony/components";
-import { IUserData } from "@harmony/components/lib-types/components/data-store/data-store.root";
+import { IUserData } from "@harmony/shared";
+
 import { getSupabaseClient, getSupabaseProfile } from "@harmony/shared/src/utils/supabaseClient";
 import { LOGIN_REDIRECT, USER_DATA } from "@harmony/shared/src/utils/tokens";
 
@@ -18,7 +19,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 	});*/
 };
 
-export const useSession = routeLoader$<IUserData>(async (requestEvent) => {
+export const useSession = routeLoader$(async (requestEvent) => {
 	const client = getSupabaseClient(requestEvent);
 
 	const { data: accountData, error: accountError } = await client.auth.getUser();
@@ -29,7 +30,7 @@ export const useSession = routeLoader$<IUserData>(async (requestEvent) => {
 
 	console.log(profileData);
 
-	return { account: accountData, profile: profileData };
+	return { account: accountData.user, profile: profileData } satisfies IUserData;
 });
 
 export const userContext = createContextId(USER_DATA);

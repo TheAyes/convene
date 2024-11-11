@@ -1,5 +1,7 @@
 import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import { RequestHandler } from "@builder.io/qwik-city";
+import { getSupabaseClient } from "@harmony/shared/src/utils/supabaseClient";
+import { LOGIN_REDIRECT } from "@harmony/shared/src/utils/tokens";
 
 import styles from "./layout-auth.scss?inline";
 
@@ -12,6 +14,13 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 		// Max once every 5 seconds, revalidate on the server to get a fresh version of this page
 		maxAge: 5
 	});*/
+};
+
+export const onRequest: RequestHandler = async (requestEvent) => {
+	const client = getSupabaseClient(requestEvent);
+
+	const { error: accountError } = await client.auth.getSession();
+	if (!accountError) throw requestEvent.redirect(LOGIN_REDIRECT, "/");
 };
 
 export default component$(() => {
