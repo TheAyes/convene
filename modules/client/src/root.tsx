@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from "@builder.io/qwik-city";
 import { isDev } from "@builder.io/qwik/build";
-import { DataStore } from "@harmony/components";
 import { RouterHead } from "./components/router-head/router-head";
 import "@harmony/shared/src/global.scss";
 
@@ -20,11 +19,10 @@ export default component$(() => {
 				{!isDev && <link rel="manifest" href={`${import.meta.env.BASE_URL}manifest.json`} />}
 				<RouterHead />
 			</head>
+			
 			<body lang="en">
-				<DataStore>
-					<RouterOutlet />
-					{!isDev && <ServiceWorkerRegister />}
-				</DataStore>
+				<RouterOutlet />
+				{!isDev && <ServiceWorkerRegister />}
 			</body>
 		</QwikCityProvider>
 	);

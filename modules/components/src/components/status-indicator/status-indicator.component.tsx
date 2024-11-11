@@ -1,16 +1,13 @@
-import { component$, useComputed$, useContext, useStyles$ } from "@builder.io/qwik";
+import { component$, useComputed$, useStyles$ } from "@builder.io/qwik";
 import { LuCable, LuCheck, LuMinus, LuMoonStar, LuX } from "@qwikest/icons/lucide";
-import { userContext } from "../data-store/data-store.component";
 
 import { IStatusIndicator, styles } from "./status-indicator.root";
 
 export const StatusIndicator = component$<IStatusIndicator>(({ overrideOnlineStatus }) => {
 	useStyles$(styles);
 
-	const userData = useContext(userContext);
-
 	const status = useComputed$(() => {
-		return overrideOnlineStatus //?? //userData.status;
+		return overrideOnlineStatus; //?? //userData.status;
 	});
 
 	const statusComponent = useComputed$(() => {

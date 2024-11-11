@@ -14,9 +14,9 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="/etc/profiles/per-user/ayes/bin/bun" />
+      <option name="program" value="bun" />
       <option name="runOnExternalChanges" value="true" />
-      <option name="scopeName" value="Components &amp; Shared" />
+      <option name="scopeName" value="Components" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$PROJECT_DIR$/modules/components" />
       <envs />
