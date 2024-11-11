@@ -10,7 +10,7 @@ jobs:
     update:
         runs-on: ubuntu-latest
         environment: development
-        
+
         permissions:
             contents: write
 
@@ -30,9 +30,7 @@ jobs:
             -   uses: oven-sh/setup-bun@v2
 
             -   name: Install dependencies and generate types
-                run: |
-                    bun install
-                    bunx supabase gen types --project-id "${{ secrets.PROJECT_REF}}" > modules/shared/src/types/database.types.ts
+                run: bunx supabase gen types --project-id "${{ secrets.PROJECT_REF}}" > modules/shared/src/types/database.types.ts
 
             -   name: Check for file changes
                 id: git_status
