@@ -1,6 +1,7 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import { type DocumentHead, Form, routeAction$ } from "@builder.io/qwik-city";
 import { InputField } from "@harmony/components";
+
 import { getSupabaseClient } from "@harmony/shared/src/utils/supabaseClient";
 import { LOGIN_REDIRECT } from "@harmony/shared/src/utils/tokens";
 import styles from "./login.scss?inline";

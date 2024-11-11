@@ -1,6 +1,6 @@
-export * from "./components/avatar";
-export * from "./components/user-status/user-status.root";
-export * from "./components/status-indicator/status-indicator.root";
-export * from "./components/header/header.root";
-export * from "./components/direct-message-list/direct-message-list.root";
-export * from "./components/input-field/input-field.root";
+export { Avatar } from "./components/avatar";
+export { UserStatus } from "./components/user-status/user-status.root";
+export { StatusIndicator } from "./components/status-indicator/status-indicator.root";
+export { Header } from "./components/header/header.root";
+export { DirectMessageList } from "./components/direct-message-list/direct-message-list.root";
+export { InputField } from "./components/input-field/input-field.root";

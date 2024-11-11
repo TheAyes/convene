@@ -18,9 +18,9 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export const onRequest: RequestHandler = async (requestEvent) => {
 	const client = getSupabaseClient(requestEvent);
-
-	const { error: accountError } = await client.auth.getSession();
-	if (!accountError) throw requestEvent.redirect(LOGIN_REDIRECT, "/");
+	
+	const { data: sessionData, error: accountError } = await client.auth.getSession();
+	if (sessionData.session && !accountError) throw requestEvent.redirect(LOGIN_REDIRECT, "/");
 };
 
 export default component$(() => {

@@ -1,4 +1,5 @@
-import { component$, useComputed$, useStyles$ } from "@builder.io/qwik";
+import { component$, useComputed$, useContext, useStyles$ } from "@builder.io/qwik";
+import { userContext } from "@harmony/shared";
 import { Image as UnpicImage } from "@unpic/qwik";
 import { type IAvatar, styles } from ".";
 import { MessageIndicator } from "../message-indicator/message-indicator.root";
@@ -8,8 +9,10 @@ export const Avatar = component$<IAvatar>(
 	({ username = "Ayes", gender = "girl", showStatusIndicator = false, messageCount = 5 }) => {
 		useStyles$(styles);
 
+		const userData = useContext(userContext);
+
 		const url = useComputed$(() => {
-			return `https://avatar.iran.liara.run/public/${gender}?username=${username}`;
+			return `https://avatar.iran.liara.run/public/${gender}?username=${userData.profile.account_name}`;
 		});
 
 		return (
