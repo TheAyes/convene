@@ -13,18 +13,21 @@ export type Database = {
         Row: {
           accepted_at: string | null
           created_at: string
+          friendship_id: string
           from_user: string
           to_user: string
         }
         Insert: {
           accepted_at?: string | null
           created_at?: string
+          friendship_id?: string
           from_user?: string
           to_user: string
         }
         Update: {
           accepted_at?: string | null
           created_at?: string
+          friendship_id?: string
           from_user?: string
           to_user?: string
         }
@@ -50,7 +53,7 @@ export type Database = {
           content: string
           deleted_at: string | null
           edit_history: Json[] | null
-          from_user: string
+          from_user: string | null
           message_id: string
           reactions: Json[] | null
           sent_at: string
@@ -60,7 +63,7 @@ export type Database = {
           content?: string
           deleted_at?: string | null
           edit_history?: Json[] | null
-          from_user: string
+          from_user?: string | null
           message_id?: string
           reactions?: Json[] | null
           sent_at?: string
@@ -70,7 +73,7 @@ export type Database = {
           content?: string
           deleted_at?: string | null
           edit_history?: Json[] | null
-          from_user?: string
+          from_user?: string | null
           message_id?: string
           reactions?: Json[] | null
           sent_at?: string
