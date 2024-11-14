@@ -1,11 +1,23 @@
-/*export const useUserData = routeLoader$(async (requestEvent) => {
-	const client = getSupabaseClient(requestEvent);
+import { routeLoader$ } from "@builder.io/qwik-city";
+import { IUserData } from "../types";
+import { getSupabaseClient, getSupabaseProfile, LOGIN_REDIRECT } from "../utils";
 
-	const { data: userData, error } = await client.auth.getUser();
+export const useSession = routeLoader$(
+	async (requestEvent): Promise<{ data: IUserData; error: null } | { data: null; error: any }> => {
+		const client = getSupabaseClient(requestEvent);
 
-	const { data: profileData } = await client.from("profiles").select("*");
+		const { data: userData, error: userError } = await client.auth.getUser();
+		if (userError) throw requestEvent.redirect(LOGIN_REDIRECT, "/login");
 
-	if (error) throw requestEvent.redirect(LOGIN_REDIRECT, "/login");
+		const { data: profileData, error: profileError } = await getSupabaseProfile(requestEvent, userData.user.id);
+		if (profileError) return { data: null, error: profileError };
 
-	return { user: userData.user, profile: profileData };
-});*/
+		return {
+			data: {
+				account: userData.user,
+				profile: profileData
+			},
+			error: null
+		};
+	}
+);
