@@ -131,6 +131,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      chat_types: "private_chat" | "group_chat" | "server_channel"
       online_states: "online" | "idle" | "busy" | "offline" | "disconnected"
     }
     CompositeTypes: {
