@@ -3,47 +3,49 @@
 @use "sass:color";
 
 .input-field {
+	font-weight: 500;
 	display: block;
 
 	padding: 1em;
 
-	color: var(--palette-text-main);
+	transition-timing-function: ease-in-out;
+	transition-duration: 200ms;
+	transition-property: background-color, border-bottom-color;
 
 	border: none;
-	border-bottom: 2px solid map.get($theme, palette, colors, primary, main);
 
-	border-radius: map.get($theme, border-radius, small);;
+	&:focus {
+		outline: none;
+	}
+}
 
-	background-color: map.get($theme, palette, colors, surface, main);;
+button.input-field {
+	color: map.get($theme, palette, text, dark, main);
+	background: map.get($theme, palette, colors, primary, main);
 
-	&:not([type="submit"]):not([type="button"]) {
-		transition-timing-function: ease-in-out;
-		transition-duration: 200ms;
-		transition-property: background-color, border-bottom-color;
-
-		&:hover {
-			border-bottom-color: 2px solid map.get($theme, palette, colors, primary, light);
-			background-color: map.get($theme, palette, colors, surface, light);
-		}
-
-		&:focus {
-			border-bottom-color: 2px solid map.get($theme, palette, colors, primary, dark);
-			outline: none;
-			background-color: map.get($theme, palette, colors, surface, dark);
-		}
+	&:hover {
+		background: map.get($theme, palette, colors, primary, light);
 	}
 
-	&[type="submit"], &[type="button"] {
-		font-weight: 500;
-		color: map.get($theme, palette, colors, primary, contrast-text);
-		background: map.get($theme, palette, colors, primary, main);
+	&:active {
+		background: map.get($theme, palette, colors, primary, dark);
+	}
+}
 
-		&:hover {
-			background: map.get($theme, palette, colors, primary, light);
-		}
+input.input-field {
+	color: var(--palette-text-main);
 
-		&:active {
-			background: map.get($theme, palette, colors, primary, dark);
-		}
+	border-bottom: 2px solid map.get($theme, palette, colors, primary, main);
+	border-radius: map.get($theme, border-radius, small);;
+	background-color: map.get($theme, palette, colors, surface, main);;
+
+	&:hover {
+		border-bottom-color: 2px solid map.get($theme, palette, colors, primary, light);
+		background-color: map.get($theme, palette, colors, surface, light);
+	}
+
+	&:focus {
+		border-bottom-color: 2px solid map.get($theme, palette, colors, primary, dark);
+		background-color: map.get($theme, palette, colors, surface, dark);
 	}
 }

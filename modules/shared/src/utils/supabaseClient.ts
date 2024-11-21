@@ -1,7 +1,7 @@
-import { RequestEvent, RequestEventBase } from "@builder.io/qwik-city";
+import type { RequestEventBase } from "@builder.io/qwik-city";
 import { createServerClient } from "supabase-auth-helpers-qwik";
-import { Database } from "../types/";
-import { LOGIN_REDIRECT } from "./tokens";
+import type { Database } from "../types/";
+import { createClient } from "./server";
 
 let supabaseClient: ReturnType<typeof createServerClient<Database>>;
 
@@ -17,11 +17,11 @@ export const getSupabaseClient = (requestEvent: RequestEventBase) => {
 };
 
 export const getSupabaseProfile = async (requestEvent: RequestEventBase, userId: string) => {
-	const client = getSupabaseClient(requestEvent);
+	const client = createClient(requestEvent);
 
 	const { data: profileData, error: profileError } = await client
 		.from("profiles")
-		.select("account_name, display_name")
+		.select("account_name, display_name, avatar_url")
 		.limit(1)
 		.eq("user_id", userId)
 		.single();
@@ -31,16 +31,4 @@ export const getSupabaseProfile = async (requestEvent: RequestEventBase, userId:
 	}
 
 	return { data: profileData, error: null };
-};
-
-export const getUserData = async (requestEvent: RequestEvent) => {
-	const client = getSupabaseClient(requestEvent);
-
-	const { data: accountData, error: accountError } = await client.auth.getUser();
-	if (accountError) requestEvent.redirect(LOGIN_REDIRECT, "/login");
-
-	const { data: profileData, error: profileError } = await getSupabaseProfile(requestEvent, accountData.user!.id);
-	if (profileError) return console.error(`ERROR: ${profileError.message}`);
-
-	return { account: accountData, profile: profileData };
 };

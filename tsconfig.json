@@ -3,8 +3,7 @@
 	"compilerOptions": {
 		"resolveJsonModule": true,
 		"composite": true,
-		"declaration": true,
-		"declarationMap": true,
+		"allowJs": false,
 		"incremental": true,
 		"outDir": "./dist",
 		"skipLibCheck": true,

@@ -4,7 +4,7 @@ This document should serve as a place to gather options for the individual compo
 
 ### Palette
 
-The entire theme obviusly
+The entire theme obviously
 
 ### Chat Messages
 

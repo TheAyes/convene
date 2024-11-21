@@ -6,7 +6,7 @@
 	},
 	"devDependencies": {
 		"supabase": "latest",
-		"@builder.io/qwik-city": "^1.9.1",
-		"supabase-auth-helpers-qwik": "^0.0.3"
+		"@builder.io/qwik-city": "^1.10.0",
+		"@supabase/ssr": "^0.5.2"
 	}
 }

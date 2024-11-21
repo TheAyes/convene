@@ -1,5 +1,5 @@
-import { component$, useComputed$, useStyles$ } from "@builder.io/qwik";
-import { useSession } from "@harmony/shared/src/hooks";
+import { component$, Resource, useComputed$, useResource$, useStyles$ } from "@builder.io/qwik";
+import { useSession } from "@harmony/shared";
 import { Image as UnpicImage } from "@unpic/qwik";
 import { type IAvatar, styles } from ".";
 import { MessageIndicator } from "../message-indicator/message-indicator.root";
@@ -16,7 +16,7 @@ export const Avatar = component$<IAvatar>(({ showStatusIndicator = false }) => {
 		console.error(sessionError);
 	}
 
-	const url = useComputed$(() => {
+	const urlResource = useResource$(() => {
 		const defaultUrl = `https://avatar.iran.liara.run/public/`;
 
 		if (session) {
@@ -33,7 +33,8 @@ export const Avatar = component$<IAvatar>(({ showStatusIndicator = false }) => {
 
 	return (
 		<div class={["avatar"]}>
-			<UnpicImage src={url.value} />
+			<Resource onResolved={(url) => <UnpicImage src={url} />} value={urlResource} />
+
 			{showStatusIndicator && <StatusIndicator />}
 			{randomMessages.value > 0 && <MessageIndicator messageCount={randomMessages.value} />}
 		</div>

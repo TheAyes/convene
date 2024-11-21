@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="168.119.49.69" id="828f605b-940b-4262-96c3-6b2a6ae7fccf" keyPath="$USER_HOME$/.ssh/convene/id_ed25519" port="22" nameFormat="DESCRIPTIVE" username="ayes" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

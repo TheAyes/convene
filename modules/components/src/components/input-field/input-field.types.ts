@@ -1,5 +1,7 @@
-import { InputHTMLAttributes } from "@builder.io/qwik";
+export interface IInputField {
+	type: HTMLInputElement["type"];
+	value?: HTMLInputElement["value"];
+	placeholder?: HTMLInputElement["placeholder"];
 
-export interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
 	[key: string]: any;
 }

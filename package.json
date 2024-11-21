@@ -1,5 +1,5 @@
 {
-	"name": "harmony",
+	"name": "convene",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -11,13 +11,12 @@
 	"devDependencies": {
 		"@eslint/js": "^9.14.0",
 		"@types/bun": "^1.1.13",
-		"@typescript-eslint/eslint-plugin": "^8.12.2",
-		"@typescript-eslint/parser": "^8.12.2",
+		"@types/eslint__js": "^8.42.3",
 		"eslint": "^9.14.0",
 		"globals": "^15.12.0",
 		"prettier": "^3.3.3",
 		"typescript": "^5.6.3",
-		"typescript-eslint": "^8.12.2"
+		"typescript-eslint": "^8.14.0"
 	},
 	"trustedDependencies": [
 		"@parcel/watcher",

@@ -9,6 +9,8 @@
       <list>
         <fileSet type="globPattern" pattern="build/" />
         <fileSet type="globPattern" pattern="dist/" />
+        <fileSet type="globPattern" pattern="lib" />
+        <fileSet type="globPattern" pattern="lib-types" />
         <fileSet type="globPattern" pattern="node_modules/" />
       </list>
     </option>
@@ -176,6 +178,7 @@
       <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
       <option name="FORCE_QUOTE_STYlE" value="true" />
       <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
+      <option name="USE_IMPORT_TYPE" value="ALWAYS" />
       <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
       <option name="IMPORT_SORT_MODULE_NAME" value="true" />

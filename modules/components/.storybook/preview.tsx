@@ -1,5 +1,5 @@
-import { Preview } from "@storybook/html";
-import { Parameters } from "storybook-framework-qwik";
+import type { Preview } from "@storybook/html";
+import type { Parameters } from "storybook-framework-qwik";
 
 import "@harmony/shared/src/global.scss";
 

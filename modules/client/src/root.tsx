@@ -19,7 +19,7 @@ export default component$(() => {
 				{!isDev && <link rel="manifest" href={`${import.meta.env.BASE_URL}manifest.json`} />}
 				<RouterHead />
 			</head>
-			
+
 			<body lang="en">
 				<RouterOutlet />
 				{!isDev && <ServiceWorkerRegister />}

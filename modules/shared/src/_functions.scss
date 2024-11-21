@@ -35,12 +35,12 @@
 	@return if($luminance > 0.45, $dark-color, $light-color);
 }
 
-@function makeColor($base-color) {
+@function makeColor($base-color, $dark-color: #000000, $light-color: #ffffff) {
 	@return (
 		main: $base-color,
 		dark: color.scale($base-color, $lightness: -10%),
 		light: color.scale($base-color, $lightness: +10%),
-		contrast-text: get-contrast-text($base-color)
+		contrast-text: get-contrast-text($base-color, $dark-color, $light-color)
 	)
 }
 

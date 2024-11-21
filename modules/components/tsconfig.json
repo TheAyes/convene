@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"target": "ES2017",
-		"module": "ES2020",
+		"module": "esnext",
 		"lib": [
 			"es2020",
 			"DOM"
@@ -16,6 +16,7 @@
 		"moduleResolution": "Bundler",
 		"esModuleInterop": true,
 		"sourceMap": true,
+		//"noEmit": true,
 		"declarationMap": true,
 		"skipLibCheck": true,
 		"incremental": true,

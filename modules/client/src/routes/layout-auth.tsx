@@ -1,6 +1,6 @@
 import { component$, Slot, useStyles$ } from "@builder.io/qwik";
-import { RequestHandler } from "@builder.io/qwik-city";
-import { getSupabaseClient } from "@harmony/shared/src/utils/supabaseClient";
+import type { RequestHandler } from "@builder.io/qwik-city";
+import { createClient } from "@harmony/shared";
 import { LOGIN_REDIRECT } from "@harmony/shared/src/utils/tokens";
 
 import styles from "./layout-auth.scss?inline";
@@ -16,9 +16,11 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 	});*/
 };
 
+export { useLoginFormLoader } from "@harmony/components";
+
 export const onRequest: RequestHandler = async (requestEvent) => {
-	const client = getSupabaseClient(requestEvent);
-	
+	const client = createClient(requestEvent);
+
 	const { data: sessionData, error: accountError } = await client.auth.getSession();
 	if (sessionData.session && !accountError) throw requestEvent.redirect(LOGIN_REDIRECT, "/");
 };

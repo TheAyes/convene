@@ -1,0 +1,21 @@
+.login {
+	display: flex;
+
+	flex-direction: column;
+	justify-content: center;
+	max-width: 420px;
+	height: 100dvh;
+
+	margin: 0 auto;
+
+	gap: 1.6em;
+
+	& > div {
+		display: flex;
+		flex-direction: column;
+
+		gap: 0.5em;
+
+	}
+
+}

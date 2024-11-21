@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    {
+      "id": "bc7615d916100753",
+      "type": "text",
+      "text": "",
+      "styleAttributes": {},
+      "x": -480,
+      "y": -60,
+      "width": 260,
+      "height": 60
+    },
+    {
+      "id": "d158b4878235fb7c",
+      "type": "text",
+      "text": "",
+      "styleAttributes": {},
+      "x": -40,
+      "y": -120,
+      "width": 260,
+      "height": 60
+    }
+  ],
+  "edges": [],
+  "metadata": {}
+}
