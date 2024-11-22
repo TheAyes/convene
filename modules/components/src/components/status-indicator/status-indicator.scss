@@ -5,19 +5,20 @@
 	$resulting-fz: calc($symbol-thickness * $status-indicator-size);
 	font-size: $resulting-fz  + em;
 	font-weight: bolder;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: calc($status-indicator-size / $resulting-fz) + em;
-	height: calc($status-indicator-size / $resulting-fz) + em;
+	align-content: center;
+	width: 2.2rem;
+	height: auto;
 	padding: 2px;
-	border: calc($status-indicator-size / ($resulting-fz * 7)) + em solid var(--palette-background-paper, $palette-background-paper);
+	border: 0.3rem solid var(--palette-background-paper, $palette-background-paper);
 	border-radius: $border-radius-full;
 	aspect-ratio: 1/1;
 
 	& > svg {
+		width: 100%;
+		height: auto;
 		stroke: var(--palette-background-paper, $palette-background-paper);
 		stroke-width: 0.1em;
+		aspect-ratio: 1/1;
 	}
 
 	&.online {

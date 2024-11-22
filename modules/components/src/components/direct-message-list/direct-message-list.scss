@@ -1,2 +1,16 @@
+@use "@harmony/shared/src/theme" as *;
+@use "sass:map";
+
 .direct-message-list {
+	display: flex;
+	flex-direction: column;
+	background: map.get($theme, palette, colors, mantle, main);
+
+	& > section {
+		overflow: scroll;
+		flex: 0 1 100%;
+
+		padding: 8px;
+
+	}
 }

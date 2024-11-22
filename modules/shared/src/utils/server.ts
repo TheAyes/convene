@@ -1,6 +1,7 @@
-import { type CookieValue, type RequestEventBase } from "@builder.io/qwik-city";
+import { type CookieValue, type RequestEventBase, server$ } from "@builder.io/qwik-city";
 import { createBrowserClient, createServerClient, isBrowser } from "@supabase/ssr";
 import type { Database } from "../types";
+import { getSupabaseProfile } from "./supabaseClient";
 
 const convertRecordToArray = (record: Record<string, CookieValue>): { name: string; value: string }[] => {
 	return Object.entries(record).map(([key, value]) => ({ name: key, value: value.value }));
@@ -27,3 +28,7 @@ export const createClient = (requestEvent: RequestEventBase) => {
 				}
 			);
 };
+
+export const getServerProfile = server$(function (userId: string) {
+	return getSupabaseProfile(this, userId);
+});

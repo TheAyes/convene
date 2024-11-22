@@ -1,0 +1,30 @@
+@use "@harmony/shared/src/theme" as *;
+@use "sass:map";
+
+.direct-message-list-entry {
+	display: flex;
+	padding: map.get($theme, spacing, extra-small);
+
+	text-decoration: inherit;
+	color: inherit;
+
+	border: none;
+	border-radius: map.get($theme, border-radius, medium);
+
+	background: map.get($theme, palette, colors, surface0, main);
+
+	gap: 0.2em;
+
+	&.currently-active {
+		background: map.get($theme, palette, colors, surface1, main);
+	}
+
+	&:hover {
+		background: map.get($theme, palette, colors, surface0, light);
+	}
+
+	&:active {
+		background: map.get($theme, palette, colors, surface0, dark);
+	}
+
+}

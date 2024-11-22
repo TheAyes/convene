@@ -21,3 +21,7 @@ body {
 :any-link {
 	color: map.get($theme, palette, colors, primary, main);
 }
+
+button {
+	color: inherit;
+}

@@ -21,7 +21,7 @@ export const getSupabaseProfile = async (requestEvent: RequestEventBase, userId:
 
 	const { data: profileData, error: profileError } = await client
 		.from("profiles")
-		.select("account_name, display_name, avatar_url")
+		.select("*")
 		.limit(1)
 		.eq("user_id", userId)
 		.single();

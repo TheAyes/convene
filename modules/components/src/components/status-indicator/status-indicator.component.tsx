@@ -1,11 +1,9 @@
-import { component$, type Signal, useComputed$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
-import { server$ } from "@builder.io/qwik-city";
-import { createClient, type TOnlineStates } from "@harmony/shared";
+import { component$, useComputed$, useStyles$ } from "@builder.io/qwik";
 import { LuCable, LuCheck, LuMinus, LuMoonStar, LuX } from "@qwikest/icons/lucide";
 
 import { type IStatusIndicator, styles } from "./status-indicator.root";
 
-const subscribeToOnlineStatus = server$(function (stateSignal: Signal<TOnlineStates>) {
+/*const subscribeToOnlineStatus = server$(function (stateSignal: Signal<TOnlineStates>) {
 	const client = createClient(this);
 
 	const presenceChannel = client.realtime.channel("online-status");
@@ -19,23 +17,23 @@ const subscribeToOnlineStatus = server$(function (stateSignal: Signal<TOnlineSta
 				await presenceChannel.track({online_at: new Date().toISOString()})
 			}
 		}, 1500);
-});
+});*/
 
 export const StatusIndicator = component$<IStatusIndicator>(({ overrideOnlineStatus }) => {
 	useStyles$(styles);
 
-	const state = useSignal<TOnlineStates>("online");
+	/*const state = useSignal<TOnlineStates>("online");*/
 
-	useTask$(() => {
+	/*useTask$(() => {
 		subscribeToOnlineStatus(state).then();
-	});
+	});*/
 
-	useTask$(({ track }) => {
+	/*useTask$(({ track }) => {
 		track(state);
-	});
+	});*/
 
 	const statusComponent = useComputed$(() => {
-		switch (state.value) {
+		switch (overrideOnlineStatus) {
 			case "online":
 				return <LuCheck />;
 
@@ -53,5 +51,5 @@ export const StatusIndicator = component$<IStatusIndicator>(({ overrideOnlineSta
 		}
 	});
 
-	return <span class={["status-indicator", state.value]}>{statusComponent}</span>;
+	return <span class={["status-indicator", overrideOnlineStatus]}>{statusComponent}</span>;
 });

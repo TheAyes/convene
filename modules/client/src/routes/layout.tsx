@@ -1,10 +1,9 @@
 import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import { DirectMessageList } from "@harmony/components";
-import { useSession } from "@harmony/shared";
 
 import styles from "./layout.scss?inline";
 
-export { useSession } from "@harmony/shared";
+//export { useSession } from "@harmony/shared";
 
 /*export const onGet: RequestHandler = async ({ cacheControl }) => {
 	// Control caching for this request for best performance and to reduce hosting costs:
@@ -22,12 +21,11 @@ export default component$(() => {
 
 	return (
 		<div class="root-layout">
-			<aside>
-				<DirectMessageList />
-			</aside>
-			<main>
+			<DirectMessageList />
+
+			<div>
 				<Slot />
-			</main>
+			</div>
 		</div>
 	);
 });

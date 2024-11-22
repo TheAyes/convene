@@ -32,7 +32,6 @@ export const UserStatus = component$<IUserStatus>(({ userId = "41dc2b66-8e2c-49e
 
 	return (
 		<div class="user-status">
-			<Avatar showStatusIndicator={true} />
 
 			<div>
 				<Resource
@@ -45,6 +44,7 @@ export const UserStatus = component$<IUserStatus>(({ userId = "41dc2b66-8e2c-49e
 
 						return (
 							<>
+								<Avatar userProfile={data} showStatusIndicator={true} />
 								<h4>{data?.display_name}</h4>
 
 								<p>{data?.avatar_url}</p>

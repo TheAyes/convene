@@ -7,12 +7,18 @@ $internal-theme: (
 			base: makeColor(#1e1e2e),
 			mantle: makeColor(#181825),
 			crust: makeColor(#11111b),
-			surface: makeColor(#313244),
-			overlay: makeColor(#6c7086),
-			primary: makeColor(#cba6f7  )
+			surface0: makeColor(#313244),
+			surface1: makeColor(#45475a),
+			surface2: makeColor(#585b70),
+			overlay0: makeColor(#6c7086),
+			overlay1: makeColor(#7f849c),
+			overlay2: makeColor(#9399b2),
+			primary: makeColor(#cba6f7),
+			active-link: makeColor(#45475a)
 		),
 		text: (
 			base: makeColor(#cdd6f4),
+			negative: makeColor(#181c31),
 			hint: makeColor(#a6adc8),
 			disabled: makeColor(#8d949d),
 		),
@@ -40,7 +46,8 @@ $internal-theme: (
 		small: 4px,
 		medium: 8px,
 		large: 16px,
-		extra-large: 32px
+		extra-large: 32px,
+		full: 999vw
 	)
 );
 

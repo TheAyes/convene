@@ -1,18 +1,23 @@
 @use "@harmony/shared/src/variables" as *;
+@use "@harmony/shared/src/theme" as *;
+@use "sass:map";
 
 .message-indicator {
-	$font-size: 0.5; // Modify this value to increase the size of the number
-	$resulting-fz: calc($font-size * $status-indicator-size);
-	font-size: $resulting-fz  + em;
-	font-weight: bolder;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: calc($status-indicator-size / $resulting-fz * 0.8) + em;
-	height: calc($status-indicator-size / $resulting-fz * 0.8) + em;
-	color: var(--palette-text-primary, $palette-text-contrast-light);
-	//border: calc($status-indicator-size / ($resulting-fz * 6)) + em solid var(--palette-background-paper, $palette-background-paper);
-	border-radius: $border-radius-full;
-	background-color: var(--palette-states-info, $palette-states-info);
+
+	font-size: 150%;
+	font-weight: 1000;
+	display: block;
+	align-content: center;
+	width: 2.3rem;
+	height: auto;
+
+	color: map.get($theme, palette, text, negative, main);
+	border-radius: map.get($theme, border-radius, full);
+	background-color: map.get($theme, palette, states, info, main);
 	aspect-ratio: 1/1;
+
+	& > p {
+		display: block;
+		text-align: center;
+	}
 }
