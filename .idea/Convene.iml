@@ -8,6 +8,11 @@
       <excludeFolder url="file://$MODULE_DIR$/modules/desktop/src/target" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/docs/.trash" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/components/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/components/lib-types" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/supabase/.branches" />
+      <excludeFolder url="file://$MODULE_DIR$/modules/supabase/.temp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

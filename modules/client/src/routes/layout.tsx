@@ -16,6 +16,8 @@ import styles from "./layout.scss?inline";
 	});*!/
 };*/
 
+export { useDmList } from "@harmony/shared";
+
 export default component$(() => {
 	useStyles$(styles);
 
