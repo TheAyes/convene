@@ -100,6 +100,8 @@ export type Database = {
         Row: {
           account_name: string
           avatar_url: string | null
+          bio: string
+          custom_status: string | null
           display_name: string | null
           online_status: Database["public"]["Enums"]["online_states"]
           updated_at: string
@@ -108,6 +110,8 @@ export type Database = {
         Insert: {
           account_name?: string
           avatar_url?: string | null
+          bio?: string
+          custom_status?: string | null
           display_name?: string | null
           online_status?: Database["public"]["Enums"]["online_states"]
           updated_at?: string
@@ -116,6 +120,8 @@ export type Database = {
         Update: {
           account_name?: string
           avatar_url?: string | null
+          bio?: string
+          custom_status?: string | null
           display_name?: string | null
           online_status?: Database["public"]["Enums"]["online_states"]
           updated_at?: string
