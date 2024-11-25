@@ -1,4 +1,4 @@
-import { LETTERS, NUMBERS, SYMBOLS } from "./tokens";
+import { LETTERS, NUMBERS, SYMBOLS } from "./constants";
 
 enum CharacterType {
 	LETTER,

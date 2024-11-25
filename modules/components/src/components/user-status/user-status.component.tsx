@@ -8,7 +8,7 @@ import {
 	useStylesScoped$
 } from "@builder.io/qwik";
 import { server$ } from "@builder.io/qwik-city";
-import { getSupabaseProfile } from "@harmony/shared";
+import { getSupabaseProfileByName } from "@harmony/shared";
 import { Avatar } from "../avatar";
 import type { IUserStatus } from "./user-status.root";
 import { styles } from "./user-status.root";
@@ -16,7 +16,7 @@ import { styles } from "./user-status.root";
 export const userStatusContext = createContextId("user-status");
 
 const getUserProfile = server$(function (userId: string) {
-	return getSupabaseProfile(this, userId);
+	return getSupabaseProfileByName(this, userId);
 });
 
 export const UserStatus = component$<IUserStatus>(({ userId = "41dc2b66-8e2c-49ee-884b-fd9e3f03b35e" }) => {

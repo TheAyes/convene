@@ -7,7 +7,11 @@ import styles from "./layout.scss?inline";
 export const useChatProfile = routeLoader$(async (requestEvent) => {
 	const client = createClient(requestEvent);
 
-	const { data, error } = await client.from("profiles").select("*").eq("user_id", requestEvent.params.id).single();
+	const { data, error } = await client
+		.from("profiles")
+		.select("*")
+		.eq("account_name", requestEvent.params.account_name)
+		.single();
 	if (error) {
 		console.error(error.message);
 		return;
@@ -15,6 +19,8 @@ export const useChatProfile = routeLoader$(async (requestEvent) => {
 
 	return data;
 });
+
+export { useUnseenMessageCount } from "@harmony/shared";
 
 export default component$(() => {
 	useStyles$(styles);
@@ -24,7 +30,7 @@ export default component$(() => {
 	return (
 		<>
 			<header class={["chat-header"]}>
-				<Avatar userProfile={profile.value} />
+				{profile.value && <Avatar userProfile={profile.value} />}
 				<h2>{profile.value?.display_name ?? "Unknown User"}</h2>
 			</header>
 

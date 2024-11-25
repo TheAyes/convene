@@ -16,7 +16,7 @@ export const getSupabaseClient = (requestEvent: RequestEventBase) => {
 	return supabaseClient;
 };
 
-export const getSupabaseProfile = async (requestEvent: RequestEventBase, userId: string) => {
+export const getSupabaseProfileById = async (requestEvent: RequestEventBase, userId: string) => {
 	const client = createClient(requestEvent);
 
 	const { data: profileData, error: profileError } = await client
@@ -24,6 +24,23 @@ export const getSupabaseProfile = async (requestEvent: RequestEventBase, userId:
 		.select("*")
 		.limit(1)
 		.eq("user_id", userId)
+		.single();
+
+	if (profileError) {
+		return { error: profileError, data: null };
+	}
+
+	return { data: profileData, error: null };
+};
+
+export const getSupabaseProfileByName = async (requestEvent: RequestEventBase, accountName: string) => {
+	const client = createClient(requestEvent);
+
+	const { data: profileData, error: profileError } = await client
+		.from("profiles")
+		.select("*")
+		.limit(1)
+		.eq("account_name", accountName)
 		.single();
 
 	if (profileError) {

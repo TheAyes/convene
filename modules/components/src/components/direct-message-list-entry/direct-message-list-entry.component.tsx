@@ -1,20 +1,22 @@
 import { component$, Resource, useResource$, useStyles$ } from "@builder.io/qwik";
 
-import { getServerProfile } from "@harmony/shared";
+import { getServerProfileByName, useUnseenMessageCount } from "@harmony/shared";
 import { Avatar } from "../avatar";
 import { NavLink } from "../nav-link/nav-link.component";
 import { type IDirectMessageListEntry, styles } from "./direct-message-list-entry.root";
 
-export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ userId, ...props }) => {
+export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ accountName, ...props }) => {
 	useStyles$(styles);
 
-	const userResource = useResource$(async () => await getServerProfile(userId));
+	const userResource = useResource$(async () => await getServerProfileByName(accountName));
+
+	const unseenMessages = useUnseenMessageCount();
 
 	return (
 		<NavLink
 			{...props}
 			activeClass="currently-active"
-			href={`/chat/${userId}/`}
+			href={`/chat/${accountName}/`}
 			class={["direct-message-list-entry"]}
 		>
 			<Resource
@@ -27,7 +29,11 @@ export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ use
 
 					return (
 						<>
-							<Avatar userProfile={data} showStatusIndicator={true} />
+							<Avatar
+								userProfile={data}
+								showStatusIndicator={true}
+								unseenMessages={unseenMessages.value.data?.count}
+							/>
 							<div>
 								<h4>{data?.display_name}</h4>
 							</div>

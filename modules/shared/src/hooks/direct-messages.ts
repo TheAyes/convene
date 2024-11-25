@@ -4,11 +4,37 @@ import { createClient } from "../utils";
 export const useDmList = routeLoader$(async (requestEvent) => {
 	const client = createClient(requestEvent);
 
-	const { data, error } = await client.from("messages").select("from_user, sent_at.max()");
+	const { data, error } = await client
+		.from("messages")
+		.select("from_user, sent_at.max()")
+		.neq("from_user", "ayes")
+		.returns<
+			{
+				from_user: string;
+				max: string;
+			}[]
+		>();
 
 	if (error) {
-		return console.error(error.message);
+		return { data: null, error: error };
 	}
+	data!.sort((a, b) => {
+		const aTime = new Date(a.max);
+		const bTime = new Date(b.max);
+		return aTime.getTime() - bTime.getTime();
+	});
 
-	return { data: data!.sort((a, b) => a.max > b.max) };
+	return { data, error: null };
+});
+
+export const useUnseenMessageCount = routeLoader$(async (requestEvent) => {
+	const client = createClient(requestEvent);
+
+	const { data, error } = await client
+		.from("messages")
+		.select("from_user, to_user, content, sent_at.count()")
+		.neq("seen_at", null)
+		.returns<{ from_user: string; to_user: string; content: string; count: number }>();
+
+	return { data, error };
 });
