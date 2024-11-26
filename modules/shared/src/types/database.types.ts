@@ -56,6 +56,7 @@ export type Database = {
           from_user: string | null
           message_id: string
           reactions: Json[] | null
+          seen_at: string | null
           sent_at: string
           to_user: string | null
         }
@@ -66,6 +67,7 @@ export type Database = {
           from_user?: string | null
           message_id?: string
           reactions?: Json[] | null
+          seen_at?: string | null
           sent_at?: string
           to_user?: string | null
         }
@@ -76,6 +78,7 @@ export type Database = {
           from_user?: string | null
           message_id?: string
           reactions?: Json[] | null
+          seen_at?: string | null
           sent_at?: string
           to_user?: string | null
         }
@@ -83,13 +86,6 @@ export type Database = {
           {
             foreignKeyName: "messages_from_user_fkey"
             columns: ["from_user"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["account_name"]
-          },
-          {
-            foreignKeyName: "messages_to_user_fkey"
-            columns: ["to_user"]
             isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["account_name"]
