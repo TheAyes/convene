@@ -1,10 +1,7 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
-import { createClient, useDmList } from "@harmony/shared";
+import { useDmList } from "@harmony/shared";
 import { DirectMessageListEntry } from "../direct-message-list-entry/direct-message-list-entry.component";
 import { type IDirectMessageList, styles } from "./direct-message-list.root";
-
-
 
 export const DirectMessageList = component$<IDirectMessageList>(({ ...props }) => {
 	useStyles$(styles);
@@ -19,13 +16,17 @@ export const DirectMessageList = component$<IDirectMessageList>(({ ...props }) =
 				<h3>Messages</h3>
 				<nav>
 					<ul>
-						{dmData?.map((data) => {
-							return (
-								<li>
-									<DirectMessageListEntry accountName={data.from_user} />
-								</li>
-							);
-						})}
+						{dmData ? (
+							dmData.map((data) => {
+								return (
+									<li>
+										<DirectMessageListEntry accountName={data.from_user} />
+									</li>
+								);
+							})
+						) : (
+							<p>Error</p>
+						)}
 					</ul>
 				</nav>
 			</section>

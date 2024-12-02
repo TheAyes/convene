@@ -1,4 +1,4 @@
-import styles from "./direct-message.scss?inline";
+import styles from "./direct-message.styles.scss?inline";
 
 export { styles };
 export * from "./direct-message.component";

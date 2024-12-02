@@ -24,7 +24,7 @@ export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ acc
 				onResolved={({ data, error }) => {
 					if (error) {
 						console.error(error.message);
-						return;
+						return <></>;
 					}
 
 					return (

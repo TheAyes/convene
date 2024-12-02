@@ -30,11 +30,12 @@ export const useDmList = routeLoader$(async (requestEvent) => {
 export const useUnseenMessageCount = routeLoader$(async (requestEvent) => {
 	const client = createClient(requestEvent);
 
-	const { data, error } = await client
+	/*const { data, error } = await client
 		.from("messages")
 		.select("from_user, to_user, content, sent_at.count()")
 		.neq("seen_at", null)
 		.returns<{ from_user: string; to_user: string; content: string; count: number }>();
 
-	return { data, error };
+	return { data, error };*/
+	return { data: {}, error: {} } as any;
 });
