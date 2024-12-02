@@ -1,6 +1,6 @@
 import { $, component$, useStyles$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { createClient, getSupabaseClient, LOGIN_REDIRECT } from "@harmony/shared";
+import { createClient, LOGIN_REDIRECT } from "@harmony/shared";
 import { formAction$, type InitialValues, type SubmitHandler, useForm, zodForm$ } from "@modular-forms/qwik";
 
 import { InputField } from "../input-field/input-field.component";

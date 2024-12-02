@@ -1,7 +1,7 @@
-import type { Database } from "@harmony/shared";
+import type { Tables } from "@harmony/shared";
 
 export interface IAvatar {
-	userProfile: Partial<Database["public"]["Tables"]["profiles"]["Row"]>;
+	userProfile: Partial<Tables<"profiles">>;
 	size?: "small" | "medium" | "large";
 	showStatusIndicator?: boolean;
 	unseenMessages?: number;

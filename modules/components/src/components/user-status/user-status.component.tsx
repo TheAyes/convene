@@ -32,7 +32,6 @@ export const UserStatus = component$<IUserStatus>(({ userId = "41dc2b66-8e2c-49e
 
 	return (
 		<div class="user-status">
-
 			<div>
 				<Resource
 					value={userResource}

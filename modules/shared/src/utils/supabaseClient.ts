@@ -1,20 +1,6 @@
 import type { RequestEventBase } from "@builder.io/qwik-city";
-import { createServerClient } from "supabase-auth-helpers-qwik";
-import type { Database } from "../types/";
+import type { Database } from "../types";
 import { createClient } from "./server";
-
-let supabaseClient: ReturnType<typeof createServerClient<Database>>;
-
-export const getSupabaseClient = (requestEvent: RequestEventBase) => {
-	if (!supabaseClient) {
-		supabaseClient = createServerClient<Database>(
-			requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
-			requestEvent.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
-			requestEvent
-		);
-	}
-	return supabaseClient;
-};
 
 export const getSupabaseProfileById = async (requestEvent: RequestEventBase, userId: string) => {
 	const client = createClient(requestEvent);
@@ -47,7 +33,12 @@ export const getSupabaseProfileByName = async (requestEvent: RequestEventBase, a
 		return { error: profileError, data: null };
 	}
 
-	console.log(profileData);
+	const sanitizedProfileData = {
+		...profileData,
+		online_status: String(profileData.online_status) as Database["public"]["Enums"]["online_states"]
+	};
 
-	return { data: profileData, error: null };
+	console.log(sanitizedProfileData);
+
+	return { data: sanitizedProfileData, error: null };
 };
