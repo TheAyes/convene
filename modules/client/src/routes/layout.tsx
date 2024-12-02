@@ -15,7 +15,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 	});
 };
 
-export { useDmList } from "@harmony/shared";
+export { useDmList, useUnseenMessageCount } from "@harmony/shared";
 
 export default component$(() => {
 	useStyles$(styles);

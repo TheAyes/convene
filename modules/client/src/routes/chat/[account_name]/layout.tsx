@@ -20,8 +20,6 @@ export const useChatProfile = routeLoader$(async (requestEvent) => {
 	return data;
 });
 
-export { useUnseenMessageCount } from "@harmony/shared";
-
 export default component$(() => {
 	useStyles$(styles);
 

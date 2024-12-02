@@ -38,7 +38,7 @@ export const getSupabaseProfileByName = async (requestEvent: RequestEventBase, a
 
 	const { data: profileData, error: profileError } = await client
 		.from("profiles")
-		.select("*")
+		.select("account_name, display_name, avatar_url, online_status")
 		.limit(1)
 		.eq("account_name", accountName)
 		.single();
@@ -46,6 +46,8 @@ export const getSupabaseProfileByName = async (requestEvent: RequestEventBase, a
 	if (profileError) {
 		return { error: profileError, data: null };
 	}
+
+	console.log(profileData);
 
 	return { data: profileData, error: null };
 };
