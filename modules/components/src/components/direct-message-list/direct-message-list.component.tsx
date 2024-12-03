@@ -1,17 +1,19 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$, useSignal, useStyles$ } from "@builder.io/qwik";
 import { useDmList } from "@harmony/shared";
-import { DirectMessageListEntry } from "../direct-message-list-entry/direct-message-list-entry.component";
+import { DirectMessageSender } from "../direct-message-sender/direct-message-sender.root";
 import { type IDirectMessageList, styles } from "./direct-message-list.root";
 
-export const DirectMessageList = component$<IDirectMessageList>(({ ...props }) => {
+export const Sidebar = component$<IDirectMessageList>(({ ...props }) => {
 	useStyles$(styles);
 
 	const {
 		value: { data: dmData, error }
 	} = useDmList();
 
+	const barWidth = useSignal(300);
+
 	return (
-		<aside {...props} class={["direct-message-list"]}>
+		<aside {...props} class={["sidebar"]} style={{ width: `${barWidth.value}px` }}>
 			<section>
 				<h3>Messages</h3>
 				<nav>
@@ -20,10 +22,7 @@ export const DirectMessageList = component$<IDirectMessageList>(({ ...props }) =
 							dmData.map((data) => {
 								return (
 									<li>
-										<DirectMessageListEntry
-											accountName={data.from_user}
-											lastMessage={data.content}
-										/>
+										<DirectMessageSender accountName={data.from_user} lastMessage={data.content} />
 									</li>
 								);
 							})
@@ -39,6 +38,7 @@ export const DirectMessageList = component$<IDirectMessageList>(({ ...props }) =
 			<section>
 				<h3>Servers</h3>
 			</section>
+			<div class="resize-thumb" />
 		</aside>
 	);
 });

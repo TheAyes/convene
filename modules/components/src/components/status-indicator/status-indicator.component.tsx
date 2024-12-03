@@ -1,6 +1,5 @@
-import { component$, Fragment, type JSXNode, useStyles$ } from "@builder.io/qwik";
-import { type TOnlineStates } from "@harmony/shared";
-import type { IconProps } from "@qwikest/icons";
+import { component$, Fragment, type JSXOutput, useStyles$ } from "@builder.io/qwik";
+import { type Tables } from "@harmony/shared";
 import { LuCable, LuCheck, LuMinus, LuMoonStar, LuX } from "@qwikest/icons/lucide";
 
 import { type IStatusIndicator, styles } from "./status-indicator.root";
@@ -21,18 +20,16 @@ import { type IStatusIndicator, styles } from "./status-indicator.root";
 		}, 1500);
 });*/
 
-const components: { [K in TOnlineStates]: (props: IconProps) => JSXNode } = {
-	online: LuCheck,
-	idle: LuMoonStar,
-	offline: LuX,
-	busy: LuMinus,
-	disconnected: LuCable
+const components: { [K in Tables<"profiles">["online_status"]]: JSXOutput } = {
+	online: <LuCheck />,
+	idle: <LuMoonStar />,
+	offline: <LuX />,
+	busy: <LuMinus />,
+	disconnected: <LuCable />
 };
 
 export const StatusIndicator = component$<IStatusIndicator>(({ onlineStatus = "offline" }) => {
 	useStyles$(styles);
 
-	const Icon = components[onlineStatus] ?? Fragment
-
-	return <span class={["status-indicator", onlineStatus]}><Icon/></span>;
+	return <span class={["status-indicator", onlineStatus]}>{components[onlineStatus] ?? <Fragment />}</span>;
 });

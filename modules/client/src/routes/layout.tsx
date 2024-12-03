@@ -1,6 +1,6 @@
 import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
-import { DirectMessageList } from "@harmony/components";
+import { Sidebar } from "@harmony/components";
 
 import styles from "./layout.scss?inline";
 
@@ -22,7 +22,7 @@ export default component$(() => {
 
 	return (
 		<div class="root-layout">
-			<DirectMessageList />
+			<Sidebar />
 
 			<div>
 				<Slot />

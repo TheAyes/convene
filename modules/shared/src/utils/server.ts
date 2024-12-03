@@ -30,5 +30,6 @@ export const createClient = (requestEvent: RequestEventBase) => {
 };
 
 export const getServerProfileByName = server$(function (accountName: string) {
+	// @ts-ignore - Used for "this" as it occasionally decides to just error out?
 	return getSupabaseProfileByName(this, accountName);
 });

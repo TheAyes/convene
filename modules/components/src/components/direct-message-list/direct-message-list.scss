@@ -1,7 +1,8 @@
 @use "@harmony/shared/src/theme" as *;
 @use "sass:map";
 
-.direct-message-list {
+.sidebar {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	background: map.get($theme, palette, colors, mantle, main);
@@ -11,6 +12,18 @@
 		flex: 0 1 100%;
 
 		padding: 8px;
+	}
 
+	.resize-thumb {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 10px;
+		content: "";
+		cursor: col-resize;
+
+		user-select: none;
+		transform: translateX(50%);
 	}
 }

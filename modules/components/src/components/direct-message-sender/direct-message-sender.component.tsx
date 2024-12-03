@@ -3,9 +3,9 @@ import { component$, Resource, useResource$, useStyles$ } from "@builder.io/qwik
 import { getServerProfileByName, useUnseenMessageCount } from "@harmony/shared";
 import { Avatar } from "../avatar";
 import { NavLink } from "../nav-link/nav-link.component";
-import { type IDirectMessageListEntry, styles } from "./direct-message-list-entry.root";
+import { type IDirectMessageListEntry, styles } from "./direct-message-sender.root";
 
-export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ accountName, lastMessage, ...props }) => {
+export const DirectMessageSender = component$<IDirectMessageListEntry>(({ accountName, lastMessage, ...props }) => {
 	useStyles$(styles);
 
 	const userResource = useResource$(async () => await getServerProfileByName(accountName));
