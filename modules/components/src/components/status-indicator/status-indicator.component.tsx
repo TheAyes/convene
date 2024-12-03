@@ -1,4 +1,6 @@
-import { component$, useComputed$, useStyles$ } from "@builder.io/qwik";
+import { component$, Fragment, type JSXNode, useStyles$ } from "@builder.io/qwik";
+import { type TOnlineStates } from "@harmony/shared";
+import type { IconProps } from "@qwikest/icons";
 import { LuCable, LuCheck, LuMinus, LuMoonStar, LuX } from "@qwikest/icons/lucide";
 
 import { type IStatusIndicator, styles } from "./status-indicator.root";
@@ -19,37 +21,16 @@ import { type IStatusIndicator, styles } from "./status-indicator.root";
 		}, 1500);
 });*/
 
-export const StatusIndicator = component$<IStatusIndicator>(({ overrideOnlineStatus }) => {
+const components: { [K in TOnlineStates]: (props: IconProps) => JSXNode } = {
+	online: LuCheck,
+	idle: LuMoonStar,
+	offline: LuX,
+	busy: LuMinus,
+	disconnected: LuCable
+};
+
+export const StatusIndicator = component$<IStatusIndicator>(({ onlineStatus = "offline" }) => {
 	useStyles$(styles);
 
-	/*const state = useSignal<TOnlineStates>("online");*/
-
-	/*useTask$(() => {
-		subscribeToOnlineStatus(state).then();
-	});*/
-
-	/*useTask$(({ track }) => {
-		track(state);
-	});*/
-
-	const statusComponent = useComputed$(() => {
-		switch (overrideOnlineStatus) {
-			case "online":
-				return <LuCheck />;
-
-			case "idle":
-				return <LuMoonStar />;
-
-			case "busy":
-				return <LuMinus />;
-
-			case "offline":
-				return <LuX />;
-
-			case "disconnected":
-				return <LuCable />;
-		}
-	});
-
-	return <span class={["status-indicator", overrideOnlineStatus]}>{statusComponent}</span>;
+	return <span class={["status-indicator", onlineStatus]}>{components[onlineStatus] ?? Fragment}</span>;
 });

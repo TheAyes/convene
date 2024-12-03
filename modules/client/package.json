@@ -41,6 +41,7 @@
 		"sass-embedded": "*",
 		"typescript": "5.4.5",
 		"undici": "*",
+		"dotenv": "latest",
 		"vite": "5.3.5",
 		"vite-tsconfig-paths": "^4.2.1"
 	}

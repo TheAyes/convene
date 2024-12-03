@@ -28,7 +28,7 @@ export default component$(() => {
 	return (
 		<>
 			<header class={["chat-header"]}>
-				{profile.value && <Avatar userProfile={profile.value} />}
+				{profile.value && <Avatar userProfile={profile.value} showStatusIndicator={true} />}
 				<h2>{profile.value?.display_name ?? "Unknown User"}</h2>
 			</header>
 

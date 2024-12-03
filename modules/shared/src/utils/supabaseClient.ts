@@ -1,5 +1,4 @@
 import type { RequestEventBase } from "@builder.io/qwik-city";
-import type { Database } from "../types";
 import { createClient } from "./server";
 
 export const getSupabaseProfileById = async (requestEvent: RequestEventBase, userId: string) => {
@@ -33,12 +32,5 @@ export const getSupabaseProfileByName = async (requestEvent: RequestEventBase, a
 		return { error: profileError, data: null };
 	}
 
-	const sanitizedProfileData = {
-		...profileData,
-		online_status: String(profileData.online_status) as Database["public"]["Enums"]["online_states"]
-	};
-
-	console.log(sanitizedProfileData);
-
-	return { data: sanitizedProfileData, error: null };
+	return { data: profileData, error: null };
 };

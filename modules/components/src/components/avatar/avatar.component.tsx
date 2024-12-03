@@ -17,12 +17,11 @@ export const Avatar = component$<IAvatar>(({ userProfile, showStatusIndicator = 
 		}
 	});
 
-
 	return (
 		<div class={["avatar"]}>
 			<Resource onResolved={(url) => <UnpicImage src={url} />} value={urlResource} />
 
-			{showStatusIndicator && <StatusIndicator overrideOnlineStatus={userProfile.online_status} />}
+			{showStatusIndicator && <StatusIndicator onlineStatus={userProfile.online_status} />}
 			{unseenMessages > 0 && <MessageIndicator messageCount={unseenMessages} />}
 		</div>
 	);
