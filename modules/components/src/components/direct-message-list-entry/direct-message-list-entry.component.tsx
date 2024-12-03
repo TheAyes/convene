@@ -5,7 +5,7 @@ import { Avatar } from "../avatar";
 import { NavLink } from "../nav-link/nav-link.component";
 import { type IDirectMessageListEntry, styles } from "./direct-message-list-entry.root";
 
-export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ accountName, ...props }) => {
+export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ accountName, lastMessage, ...props }) => {
 	useStyles$(styles);
 
 	const userResource = useResource$(async () => await getServerProfileByName(accountName));
@@ -36,6 +36,7 @@ export const DirectMessageListEntry = component$<IDirectMessageListEntry>(({ acc
 							/>
 							<div>
 								<h4>{data?.display_name}</h4>
+								<p>{lastMessage}</p>
 							</div>
 						</>
 					);

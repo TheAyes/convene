@@ -6,11 +6,12 @@ export const useDmList = routeLoader$(async (requestEvent) => {
 
 	const { data, error } = await client
 		.from("messages")
-		.select("from_user, sent_at.max()")
+		.select("from_user, content, sent_at.max()")
 		.neq("from_user", "ayes")
 		.returns<
 			{
 				from_user: string;
+				content: string;
 				max: string;
 			}[]
 		>();

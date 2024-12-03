@@ -20,7 +20,10 @@ export const DirectMessageList = component$<IDirectMessageList>(({ ...props }) =
 							dmData.map((data) => {
 								return (
 									<li>
-										<DirectMessageListEntry accountName={data.from_user} />
+										<DirectMessageListEntry
+											accountName={data.from_user}
+											lastMessage={data.content}
+										/>
 									</li>
 								);
 							})

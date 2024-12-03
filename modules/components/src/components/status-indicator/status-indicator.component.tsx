@@ -32,5 +32,7 @@ const components: { [K in TOnlineStates]: (props: IconProps) => JSXNode } = {
 export const StatusIndicator = component$<IStatusIndicator>(({ onlineStatus = "offline" }) => {
 	useStyles$(styles);
 
-	return <span class={["status-indicator", onlineStatus]}>{components[onlineStatus] ?? Fragment}</span>;
+	const Icon = components[onlineStatus] ?? Fragment
+
+	return <span class={["status-indicator", onlineStatus]}><Icon/></span>;
 });

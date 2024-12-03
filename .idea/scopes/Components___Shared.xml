@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Components &amp; Shared" pattern="(file[Convene]:modules/shared/src//*&amp;&amp;!file[Convene]:modules/shared/src/assets//*||file[Convene]:modules/components/src//*)&amp;&amp;!file[Convene]:modules/components/src/assets//*" />
+</component>
