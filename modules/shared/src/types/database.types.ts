@@ -99,6 +99,7 @@ export type Database = {
           bio: string
           custom_status: string | null
           display_name: string | null
+          online_status: string
           updated_at: string
           user_id: string
         }
@@ -108,6 +109,7 @@ export type Database = {
           bio?: string
           custom_status?: string | null
           display_name?: string | null
+          online_status?: string
           updated_at?: string
           user_id?: string
         }
@@ -117,6 +119,7 @@ export type Database = {
           bio?: string
           custom_status?: string | null
           display_name?: string | null
+          online_status?: string
           updated_at?: string
           user_id?: string
         }
@@ -131,6 +134,7 @@ export type Database = {
     }
     Enums: {
       chat_types: "private_chat" | "group_chat" | "server_channel"
+      online_states: "offline" | "online"
     }
     CompositeTypes: {
       [_ in never]: never
