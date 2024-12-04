@@ -99,7 +99,7 @@ export type Database = {
           bio: string
           custom_status: string | null
           display_name: string | null
-          online_status: string
+          online_status: Database["public"]["Enums"]["online_states"]
           updated_at: string
           user_id: string
         }
@@ -109,7 +109,7 @@ export type Database = {
           bio?: string
           custom_status?: string | null
           display_name?: string | null
-          online_status?: string
+          online_status?: Database["public"]["Enums"]["online_states"]
           updated_at?: string
           user_id?: string
         }
@@ -119,7 +119,7 @@ export type Database = {
           bio?: string
           custom_status?: string | null
           display_name?: string | null
-          online_status?: string
+          online_status?: Database["public"]["Enums"]["online_states"]
           updated_at?: string
           user_id?: string
         }
