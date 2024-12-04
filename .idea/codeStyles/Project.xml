@@ -167,10 +167,6 @@
       <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/CONTINUOUS_LINE_INDENT/@EntryValue" value="Double" type="string" />
       <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/TAB_WIDTH/@EntryValue" value="4" type="int" />
     </RiderCodeStyleSettings>
-    <ScssCodeStyleSettings>
-      <option name="HEX_COLOR_LOWER_CASE" value="true" />
-      <option name="HEX_COLOR_LONG_FORMAT" value="true" />
-    </ScssCodeStyleSettings>
     <TypeScriptCodeStyleSettings version="0">
       <option name="JSDOC_INCLUDE_TYPES" value="true" />
       <option name="FORCE_SEMICOLON_STYLE" value="true" />

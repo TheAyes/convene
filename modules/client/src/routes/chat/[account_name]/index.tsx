@@ -1,7 +1,8 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import { type DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import { DirectMessage } from "@harmony/components";
 import { createClient } from "@harmony/shared";
+import styles from "./index.scss?inline";
 
 export const useMessages = routeLoader$(async (requestEvent) => {
 	const client = createClient(requestEvent);
@@ -19,14 +20,18 @@ export default component$(() => {
 		value: { data: messages, error: messagesError }
 	} = useMessages();
 
+	useStyles$(styles);
+
 	return (
 		<main>
 			{messagesError ? (
 				<p>{messagesError.message}</p>
 			) : (
-				messages?.map((message) => {
-					return <DirectMessage message={message} />;
-				})
+				<ul class={["message-list"]}>
+					{messages?.map((message) => {
+						return <DirectMessage message={message} />;
+					})}
+				</ul>
 			)}
 		</main>
 	);
