@@ -90,6 +90,13 @@ export type Database = {
             referencedRelation: "profiles"
             referencedColumns: ["account_name"]
           },
+          {
+            foreignKeyName: "messages_to_user_fkey"
+            columns: ["to_user"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["account_name"]
+          },
         ]
       }
       profiles: {
