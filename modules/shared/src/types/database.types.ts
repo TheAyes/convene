@@ -137,7 +137,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_latest_messages: {
+        Args: {
+          to_user_name: string
+        }
+        Returns: {
+          from_user: string
+          content: string
+          sent_at: string
+        }[]
+      }
     }
     Enums: {
       chat_types: "private_chat" | "group_chat" | "server_channel"
